@@ -7,7 +7,7 @@ import logging
 import os
 import sys
 import time
-from pathlib import PurePath
+from pathlib import PurePath, Path
 
 import onnxruntime as ort
 import torch
@@ -77,7 +77,10 @@ def main():
 
     # ORT Logging level
     # Logging severity -> 0:Verbose, 1:Info, 2:Warning, 3:Error, 4:Fatal
-    ort.set_default_logger_severity(3)
+    if args.verbose:
+        sess_options.log_severity_level = 0
+    else:
+        ort.set_default_logger_severity(3)
 
     if args.target == "aie":
         ep = "VitisAIExecutionProvider"  # running on Ryzen-AI
@@ -92,9 +95,12 @@ def main():
     model_args["provider"] = ep
     model_args["session_options"] = sess_options
 
+    model_cache_dir = os.path.join(Path(__file__).parent.resolve(), "cache", os.path.basename(args.model_name.lower()))
     if args.target == "aie":
         model_args["provider_options"] = {
-            "config_file": "vaip_config_transformers.json"
+            "config_file": "vaip_config_transformers.json",
+            "cacheDir": str(model_cache_dir),
+            "cacheKey": "modelcachekey",
         }
 
     # Model/Tokenizer select
