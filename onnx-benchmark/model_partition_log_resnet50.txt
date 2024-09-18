@@ -1,0 +1,687 @@
+Executing command: python performance_benchmark.py --model []/onnx-benchmark/models/resnet50/resnet50_fp32_qdq.onnx --execution_provider VitisAIEP --core PHX_4x4 --config []/onnx-benchmark/models/resnet50/vaip_config_opt.json --intra_op_num_threads 1 --num 100 --instance_count 1 --threads 1 --batchsize 1 --infinite 1 --timelimit 10 --renew 1 --min_interval 0 --no_inference 0 --warmup 40 --log_csv 0 --verbose 0 --num_calib 10
+------------------------------------------------------------------------------
+Preliminary environment check
+PACKAGE                             STATUS
+Python version 3.10                 OK
+onnxruntime version: 1.17.0         OK
+onnxruntime-vitisai version: 1.17.0 OK
+voe version: 1.2.0                  OK
+--------------------------------------------------------------------------------
+Core selection
+Path to xclbin_path = C:\Program Files\RyzenAI\1.2.0\voe-4.0-win_amd64\xclbins\phoenix\4x4.xclbin
+AMD_AIE2_4x4_Overlay
+--------------------------------------------------------------------------------
+Cleaning cache
+Deleted []\onnx-benchmark\cache\resnet50_fp32_qdq.onnx
+Infinite Loop: skipping warmup
+config path = []/onnx-benchmark/models/resnet50/vaip_config_opt.json
+[WARNING] The model opset version is 1, which seems unlikely. This might be the result of a previous opset conversion.
+The model is already quantized
+2024-09-16 08:53:43.2609496 [I:onnxruntime:, inference_session.cc:477 onnxruntime::InferenceSession::TraceSessionOptions] Session Options {  execution_mode:0 execution_order:DEFAULT enable_profiling:1 optimized_model_filepath: enable_mem_pattern:1 enable_mem_reuse:1 enable_cpu_mem_arena:1 profile_file_prefix:onnxruntime_profile_ session_logid: session_log_severity_level:0 session_log_verbosity_level:0 max_num_graph_transformation_steps:10 graph_optimization_level:3 intra_op_param:OrtThreadPoolParams { thread_pool_size: 1 auto_set_affinity: 0 allow_spinning: 1 dynamic_block_base_: 0 stack_size: 0 affinity_str:  set_denormal_as_zero: 0 } inter_op_param:OrtThreadPoolParams { thread_pool_size: 0 auto_set_affinity: 0 allow_spinning: 1 dynamic_block_base_: 0 stack_size: 0 affinity_str:  set_denormal_as_zero: 0 } use_per_session_threads:1 thread_pool_allow_spinning:1 use_deterministic_compute:0 config_options: {  } }
+2024-09-16 08:53:43.2733569 [I:onnxruntime:, inference_session.cc:379 onnxruntime::InferenceSession::ConstructorCommon::<lambda_be5e76f2fc73f4e7b87db591e7baa749>::operator ()] Flush-to-zero and denormal-as-zero are off
+2024-09-16 08:53:43.2762098 [I:onnxruntime:, inference_session.cc:387 onnxruntime::InferenceSession::ConstructorCommon] Creating and using per session threadpools since use_per_session_threads_ is true
+2024-09-16 08:53:43.2782160 [I:onnxruntime:, inference_session.cc:405 onnxruntime::InferenceSession::ConstructorCommon] Dynamic block base set to 0
+2024-09-16 08:53:43.5182594 [I:onnxruntime:, inference_session.cc:1537 onnxruntime::InferenceSession::Initialize] Initializing session.
+2024-09-16 08:53:43.5217890 [I:onnxruntime:, inference_session.cc:1574 onnxruntime::InferenceSession::Initialize] Adding default CPU execution provider.
+2024-09-16 08:53:43.5257527 [I:onnxruntime:, graph_partitioner.cc:902 onnxruntime::GraphPartitioner::InlineFunctionsAOT] This model does not have any local functions defined. AOT Inlining is not performed
+2024-09-16 08:53:43.5293297 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 1 with status: OK
+2024-09-16 08:53:43.5367063 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.5400542 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.5439112 [I:onnxruntime:, constant_sharing.cc:256 onnxruntime::ConstantSharing::ApplyImpl] Total shared scalar initializer count: 173
+2024-09-16 08:53:43.5455555 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.5496566 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.5532364 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.5560285 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.5584399 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.5603339 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.5628156 [V:onnxruntime:, qdq_propagation.cc:43 onnxruntime::`anonymous-namespace'::InsertQDQPair] Inserting Q/DQ pair between input and node ("data_transpose", index: 106) at NodeArg "data".
+2024-09-16 08:53:43.5659942 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 1 with status: OK
+2024-09-16 08:53:43.5702952 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.5729415 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.5764661 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer TransposeOptimizer modified: 0 with status: OK
+2024-09-16 08:53:43.5792891 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.5820699 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.5850051 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.5904545 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.5942182 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.5964897 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.5988637 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6005771 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6032725 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6060030 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.6081790 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.6107047 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6131268 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.6158082 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.6211401 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.6246495 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.6267651 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6286691 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6302977 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6328749 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6352261 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.6376030 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.6396090 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6420082 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.6442474 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.6492181 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.6518458 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.6545503 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6566887 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6587639 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6613411 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6635949 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.6657027 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.6678581 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6702242 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.6725730 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.6771751 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.6807025 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.6831430 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6855202 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.6875219 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6901615 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6923591 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.6947540 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.6972603 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.6994763 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.7024344 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.7075011 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.7112557 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.7138406 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7160982 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7183914 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7216108 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7237989 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.7260627 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.7285296 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7311214 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.7342536 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.7389494 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.7426479 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.7451440 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7476331 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7504887 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7543493 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7580101 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.7605838 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.7640162 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7669495 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.7699640 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.7777744 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.7820437 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.7850446 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7879939 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.7903698 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7944303 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.7977788 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.8003981 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.8047901 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8077646 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.8110506 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.8182576 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.8214940 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.8252322 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.8283670 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.8306267 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8339965 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8371783 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.8397638 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+2024-09-16 08:53:43.8424244 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer Level1_RuleBasedTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8459085 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DoubleQDQPairsRemover modified: 0 with status: OK
+2024-09-16 08:53:43.8502344 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantSharing modified: 1 with status: OK
+2024-09-16 08:53:43.8561036 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CommonSubexpressionElimination modified: 0 with status: OK
+2024-09-16 08:53:43.8594535 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConstantFolding modified: 0 with status: OK
+2024-09-16 08:53:43.8622441 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulAddFusion modified: 0 with status: OK
+2024-09-16 08:53:43.8650712 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ReshapeFusion modified: 0 with status: OK
+2024-09-16 08:53:43.8676859 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FreeDimensionOverrideTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8713488 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQPropagationTransformer modified: 0 with status: OK
+2024-09-16 08:53:43.8767237 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EnsureUniqueDQForNodeUnit modified: 0 with status: OK
+2024-09-16 08:53:43.8798756 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RocmBlasAltImpl modified: 0 with status: OK
+[Vitis AI EP] No. of Operators :   CPU     2    NPU   396
+[Vitis AI EP] No. of Subgraphs :   CPU     1    NPU     1 Actually running on NPU     1
+2024-09-16 08:53:58.3258694 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_conv0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3284593 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv4_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3312411 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv3_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3345097 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv15_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3374830 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_conv0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3402298 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm2_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3430906 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv4_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3458120 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_relu0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3481429 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_batchnorm0_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3507609 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm2_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3539078 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm15_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3571198 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_batchnorm0_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3596936 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv10_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3619975 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv5_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3647158 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_pool0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3688193 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm5_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3717089 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm7_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3745763 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv1_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3773489 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm5_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3801888 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv11_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3829633 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv4_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3860214 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_batchnorm3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3885269 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv1_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3911514 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv3_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3937997 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm4_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.3968742 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm3_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.3998879 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation5_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4029103 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv9_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4056105 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm3_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4092663 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4119562 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_batchnorm6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4144653 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4176121 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu1_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4197129 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4218545 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm0_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4241778 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv2_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4264455 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm0_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4290134 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_batchnorm2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4313939 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv2_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4337778 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4359805 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv1_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4383679 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv1_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4406198 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm1_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4429462 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4452188 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm1_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4486697 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu1_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4513048 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_activation0_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4545536 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu4_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4568670 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4590490 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv4_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4617697 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm4_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4648103 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm3_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4676629 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4702178 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv18_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4729875 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv3_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4763415 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv5_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4801487 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm6_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4828438 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv5_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4857781 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4886890 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm13_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4918225 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm8_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.4955618 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv6_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.4983890 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv6_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5010741 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm4_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5040959 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm6_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5066831 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm6_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5091638 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_activation1_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5121321 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv7_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5145747 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_activation0_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5170570 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv7_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5202026 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm7_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5226127 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm7_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5249434 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu4_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5273623 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv6_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5296392 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm10_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5324558 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv8_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5351697 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv8_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5377983 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm8_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5405103 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu5_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5438796 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm8_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5466990 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm0_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5490583 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_relu5_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5512497 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu1_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5534186 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5557852 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_batchnorm9_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5583594 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm7_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5608913 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm2_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5633695 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage1_conv9_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5657651 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm9_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5688579 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage1_batchnorm9_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5714880 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage1_activation2_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5740081 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv2_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5764912 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_batchnorm3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5787655 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_batchnorm2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5810667 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv2_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5834856 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_dense0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5858206 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv3_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5882666 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm1_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.5910356 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv3_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5934272 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv16_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5958311 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv1_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.5985819 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm3_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6020564 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm3_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6050302 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm1_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6075261 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv1_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6098140 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6120750 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv17_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6143590 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm0_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6175260 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6207018 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm4_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6239071 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv1_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6266032 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm1_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6292323 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv2_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6322512 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv2_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6357892 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm15_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6389549 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm2_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6416705 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_activation0_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6441586 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm17_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6470195 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv11_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6499053 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv4_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6526122 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm4_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6551352 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6577316 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm9_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6604551 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_activation2_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6629018 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv10_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6655401 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv5_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6690720 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm5_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6717364 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm5_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6753316 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6777133 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm2_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6804474 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_dense0_bias_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6829371 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_batchnorm6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6852811 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_batchnorm9_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6875650 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv13_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6899626 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv8_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6922547 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv6_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.6945523 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv6_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.6968588 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm6_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7000889 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_activation1_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7022415 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm18_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7048223 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm3_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7075038 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv12_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7109192 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv7_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7142758 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm6_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7167804 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv12_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7191845 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv7_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7215938 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm7_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7239866 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu4_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7261828 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv8_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7284555 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv16_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7310875 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv8_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7333998 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm8_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7357507 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm8_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7386305 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv5_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7413677 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm11_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7441475 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7472023 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu5_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7494216 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_batchnorm9_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7516854 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm7_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7541522 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv9_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7564282 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm7_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7587485 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage2_conv9_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7610209 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm9_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7636838 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv6_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7659948 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm9_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7683254 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm18_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7708123 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_activation2_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7741615 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm0_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7779887 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu11_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7803185 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm10_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7837799 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm10_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7867557 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7896825 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm2_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7925067 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm11_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.7963850 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm11_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.7989868 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_relu7_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8019031 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_batchnorm12_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8049032 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm12_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8081406 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage2_batchnorm12_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8120846 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage2_activation3_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8144002 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv17_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8169442 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8193079 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv18_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8218319 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu10_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8240640 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv3_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8263865 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm18_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8287351 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm3_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8311885 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm11_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8335187 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8360482 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm0_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8385265 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm0_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8419354 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8442193 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8464662 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm1_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8488090 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm1_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8511383 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv4_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8534208 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv2_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8559145 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm2_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8583544 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation0_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8605364 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu4_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8630181 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm4_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8657931 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm4_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8684367 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv5_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8709360 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv5_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8740398 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm5_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8765128 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm5_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8789808 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8811928 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_batchnorm6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8834653 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv6_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8858465 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm6_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8890539 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation1_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8912181 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation2_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8934744 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv7_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.8966391 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv7_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.8996419 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm7_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9020926 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv13_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9056736 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv8_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9085149 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv7_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9119333 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm13_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9157275 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm8_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9189238 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_7_token_87'. It is no longer used by any node.
+2024-09-16 08:53:58.9219055 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu5_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9243200 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm9_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9268048 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm14_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9296838 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv12_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9323371 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv9_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9357123 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm6_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9385819 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv12_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9412221 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv9_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9443608 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu9_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9466259 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv14_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9491235 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm12_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9514682 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm9_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9538165 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv14_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9561092 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm12_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9584481 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm9_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9609061 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv6_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9633221 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm10_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9667034 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv10_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9694231 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv10_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9720535 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu6_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9746427 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv11_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9769448 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu8_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9790376 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv11_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:58.9814668 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_relu7_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9835834 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm12_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9858254 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation3_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9879323 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm14_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9904011 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_batchnorm15_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9926377 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage3_conv15_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9952933 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage3_activation4_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9975293 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm16_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:58.9999826 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm16_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0024793 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage3_batchnorm17_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0053373 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_batchnorm3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0076209 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv3_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0100424 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv3_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0123679 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm3_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0147126 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv0_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0169710 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'flatten_473_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0189102 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm0_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0212748 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu0_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0242606 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_activation1_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0271498 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm1_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0297247 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv1_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0322193 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu1_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0343761 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_batchnorm2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0372388 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv2_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0398279 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_6_token_86'. It is no longer used by any node.
+2024-09-16 08:53:59.0424338 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm2_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0451580 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv9_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0477881 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv9_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0504263 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv4_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0530760 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv4_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0558215 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm4_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0592411 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu2_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0617504 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv5_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0643436 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm5_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0674892 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm5_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0709917 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_stage4_relu3_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0743275 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm6_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0767827 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv7_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0794045 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv8_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0818136 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_W_resnetv17_stage4_conv8_weight_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0842432 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm8_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0876036 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm8_beta_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.0906334 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ConvBnFusion_BN_B_resnetv17_stage4_batchnorm9_beta_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0931111 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_pool1_fwd_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0960524 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_dense0_weight_zero_point'. It is no longer used by any node.
+2024-09-16 08:53:59.0990461 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'resnetv17_dense0_bias_quantized'. It is no longer used by any node.
+2024-09-16 08:53:59.1020336 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_5_token_85'. It is no longer used by any node.
+2024-09-16 08:53:59.1048660 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_1_token_81'. It is no longer used by any node.
+2024-09-16 08:53:59.1069572 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_2_token_82'. It is no longer used by any node.
+2024-09-16 08:53:59.1090683 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_9_token_89'. It is no longer used by any node.
+2024-09-16 08:53:59.1112939 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_3_token_83'. It is no longer used by any node.
+2024-09-16 08:53:59.1132787 [I:onnxruntime:, graph.cc:3575 onnxruntime::Graph::CleanUnusedInitializersAndNodeArgs] Removing initializer 'ortshared_1_0_1_8_token_88'. It is no longer used by any node.
+2024-09-16 08:53:59.1178380 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer TransposeOptimizer_CPUExecutionProvider modified: 0 with status: OK
+2024-09-16 08:53:59.1201555 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.1219783 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.1238713 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1256858 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1274953 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1292843 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1310039 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1326273 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1344107 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1361923 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1378645 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1395867 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1412995 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1430272 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1447565 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1464680 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.1482813 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1502727 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1526404 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1546573 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1566486 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1595310 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1617637 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.1636494 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.1661046 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.1683189 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1711173 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1737170 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1759999 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1783301 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1801778 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1827308 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1849914 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1869675 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1889532 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1912469 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1935506 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1959296 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.1985330 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.2006369 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2026648 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2048851 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2071573 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2094062 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2113956 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2135228 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.2157639 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.2183569 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.2211498 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2235468 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2256018 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2275046 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2297000 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2320431 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2343961 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2363955 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2383266 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2401308 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2420311 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2443948 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2473189 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2497718 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.2516017 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2538599 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2558096 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2577537 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2596940 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2617759 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2635212 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.2658980 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.2678013 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.2696154 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2713775 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2732097 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2750968 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2773463 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2790489 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2811270 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2839347 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2858477 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2884556 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2901763 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2926592 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2944199 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2960920 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.2977977 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.2994998 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3011704 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3029320 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3047681 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3065895 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3087074 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.3115739 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.3135580 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.3159708 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3179793 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3201696 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3222632 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3254443 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3273098 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3292404 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3312891 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3332136 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3360260 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3378528 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3400540 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3427914 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3447800 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.3468063 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3489207 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3506856 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3524692 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3545661 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3570649 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3592243 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.3615242 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.3634630 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.3656518 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3677635 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3700391 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3720771 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3745761 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3763745 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3782225 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3802184 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3827869 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3848617 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3874359 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3895069 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3915791 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3935755 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.3955874 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3976492 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.3996973 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4018928 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4037577 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4057243 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4077084 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.4097182 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.4124775 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.4144167 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4162317 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4188133 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4207478 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4224646 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4240818 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4257520 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4282325 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4306245 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4326977 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4346405 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4365058 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4383607 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4401257 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.4420682 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4437344 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4454013 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4472909 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4491620 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4508615 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4526278 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.4544119 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.4561383 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.4579368 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4599411 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4622981 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4642393 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4660466 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4677566 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4695130 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4713737 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4731261 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4749371 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4767336 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4789633 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4815439 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4834385 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.4858233 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4874996 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4891715 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4910705 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4929106 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4951679 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.4970112 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.4988813 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.5006912 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5025851 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5045704 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5064386 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5083168 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5102625 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5119797 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5137408 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5155996 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5173534 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5191642 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5209813 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5228052 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5246484 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5271636 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.5292693 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5310271 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5327842 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5347747 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5365439 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5382329 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5399964 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5420534 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQS8ToU8Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.5438256 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQSelectorActionTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5456829 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GemmActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5474853 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulIntegerToFloatFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5493694 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer DynamicQuantizeMatMulFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5515919 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5538524 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5558647 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer LayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5583313 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SimplifiedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5604247 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer AttentionFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5626362 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer EmbedLayerNormFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5648030 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSplitFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5667219 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer GatherToSliceFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5695712 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatmulTransposeFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5730927 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5753174 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer SkipLayerNormFusion modified: 1 with status: OK
+2024-09-16 08:53:59.5774831 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer FastGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5796853 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QuickGeluFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5818625 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasSoftmaxFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5839877 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer BiasDropoutFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5865751 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulScaleFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5887669 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MatMulActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5907077 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer QDQFinalCleanupTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5926261 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer NchwcTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5944167 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer NhwcTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.5961851 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer ConvAddActivationFusion modified: 0 with status: OK
+2024-09-16 08:53:59.5980500 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer RemoveDuplicateCastTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.6000057 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer CastFloat16Transformer modified: 0 with status: OK
+2024-09-16 08:53:59.6018279 [I:onnxruntime:, graph_transformer.cc:15 onnxruntime::GraphTransformer::Apply] GraphTransformer MemcpyTransformer modified: 0 with status: OK
+2024-09-16 08:53:59.6038503 [V:onnxruntime:, session_state.cc:1146 onnxruntime::VerifyEachNodeIsAssignedToAnEp] Node placements
+2024-09-16 08:53:59.6055882 [V:onnxruntime:, session_state.cc:1152 onnxruntime::VerifyEachNodeIsAssignedToAnEp]  Node(s) placed on [CPUExecutionProvider]. Number of nodes: 2
+2024-09-16 08:53:59.6075600 [V:onnxruntime:, session_state.cc:1154 onnxruntime::VerifyEachNodeIsAssignedToAnEp]   DequantizeLinear (resnetv17_dense0_fwd_DequantizeLinear)
+2024-09-16 08:53:59.6100312 [V:onnxruntime:, session_state.cc:1154 onnxruntime::VerifyEachNodeIsAssignedToAnEp]   QuantizeLinear (data_q)
+2024-09-16 08:53:59.6114327 [V:onnxruntime:, session_state.cc:1152 onnxruntime::VerifyEachNodeIsAssignedToAnEp]  Node(s) placed on [VitisAIExecutionProvider]. Number of nodes: 1
+2024-09-16 08:53:59.6132184 [V:onnxruntime:, session_state.cc:1154 onnxruntime::VerifyEachNodeIsAssignedToAnEp]   vitis_ai_ep_1 (VitisAIExecutionProvider_vitis_ai_ep_1_0)
+2024-09-16 08:53:59.6149972 [W:onnxruntime:, session_state.cc:1166 onnxruntime::VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.
+2024-09-16 08:53:59.6184973 [V:onnxruntime:, session_state.cc:126 onnxruntime::SessionState::CreateGraphInfo] SaveMLValueNameIndexMapping
+2024-09-16 08:53:59.6208539 [V:onnxruntime:, session_state.cc:172 onnxruntime::SessionState::CreateGraphInfo] Done saving OrtValue mappings.
+2024-09-16 08:53:59.6226149 [I:onnxruntime:, allocation_planner.cc:2432 onnxruntime::IGraphPartitioner::CreateGraphPartitioner] Use DeviceBasedPartition as default
+2024-09-16 08:53:59.6248987 [I:onnxruntime:, session_state_utils.cc:201 onnxruntime::session_state_utils::SaveInitializedTensors] Saving initialized tensors.
+2024-09-16 08:53:59.6270403 [I:onnxruntime:, session_state_utils.cc:345 onnxruntime::session_state_utils::SaveInitializedTensors] Done saving initialized tensors
