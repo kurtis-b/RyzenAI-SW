@@ -190,83 +190,143 @@ def appendcsv(measurement, args, csv_file="measurements.csv"):
         if file.tell() == 0:
             writer.writeheader()
 
-        writer.writerow(
-            {
-                "timestamp": time.strftime("%Y%m%d%H%M%S"),
-                "command": measurement["run"]["command"],
-                "p_batchsize": args.batchsize,
-                "p_config": args.config,
-                "p_core": args.core,
-                "p_execution_provider": args.execution_provider,
-                "p_infinite": args.infinite,
-                "p_instance_count": args.instance_count,
-                "p_intra_op_num_threads": args.intra_op_num_threads,
-                "p_json": args.json,
-                "p_min_interval": args.min_interval,
-                "p_model": args.model,
-                "p_no_inference": args.no_inference,
-                "p_num": args.num,
-                "p_power": "NA",
-                "p_renew": args.renew,
-                "p_timelimit": args.timelimit,
-                "p_threads": args.threads,
-                "p_warmup": args.warmup,
-                "benchmark_release": measurement["run"]["benchmark_release"],
-                "model": measurement["run"]["model"],
-                "execution_provider": measurement["run"]["execution_provider"],
-                "total_throughput": measurement["results"]["performance"][
-                    "total_throughput"
-                ],
-                "average_latency": measurement["results"]["performance"][
-                    "average_latency"
-                ],
-                "apu_perf_pow": measurement["results"]["efficency perf/W"][
-                    "apu_perf_pow"
-                ],
-                "energy_apu": measurement["results"]["energy mJ/frame"]["apu"],
-                "energy_cpu": measurement["results"]["energy mJ/frame"]["cpu"],
-                "energy_npu": measurement["results"]["energy mJ/frame"]["npu"],
-                "energy_mem": measurement["results"]["energy mJ/frame"]["mem"],
-                "MPNPUCLK": measurement["system"]["frequency"]["MPNPUCLK"],
-                "NPUHCLK": measurement["system"]["frequency"]["NPUHCLK"],
-                "FCLK": measurement["system"]["frequency"]["FCLK"],
-                "LCLK": measurement["system"]["frequency"]["LCLK"],
-                "V_CORE0": measurement["system"]["voltages"]["CORE0"],
-                "V_CORE1": measurement["system"]["voltages"]["CORE1"],
-                "V_CORE2": measurement["system"]["voltages"]["CORE2"],
-                "V_CORE3": measurement["system"]["voltages"]["CORE3"],
-                "V_CORE4": measurement["system"]["voltages"]["CORE4"],
-                "V_CORE5": measurement["system"]["voltages"]["CORE5"],
-                "V_CORE6": measurement["system"]["voltages"]["CORE6"],
-                "V_CORE7": measurement["system"]["voltages"]["CORE7"],
-                "processor": measurement["system"]["hw"]["processor"],
-                "num_cores": measurement["system"]["hw"]["num_cores"],
-                "os_version": measurement["system"]["os"]["os_version"],
-                "CPU_usage": measurement["system"]["resources"]["CPU_usage"],
-                "Memory": measurement["system"]["resources"]["Memory"],
-                "Swap_Memory": measurement["system"]["resources"]["Swap_Memory"],
-                "npu_driver": measurement["system"]["driver"]["npu"],
-                "xclbin_path": measurement["environment"]["xclbin"]["xclbin_path"],
-                "vaip": measurement["environment"]["xclbin"]["packages"]["vaip"][
-                    "version"
-                ],
-                "target_factory": measurement["environment"]["xclbin"]["packages"][
-                    "target_factory"
-                ]["version"],
-                "xcompiler": measurement["environment"]["xclbin"]["packages"][
-                    "xcompiler"
-                ]["version"],
-                "onnxruntime": measurement["environment"]["xclbin"]["packages"][
-                    "onnxrutnime"
-                ]["version"],
-                "graph_engine": measurement["environment"]["xclbin"]["packages"][
-                    "graph_engine"
-                ]["version"],
-                "xrt": measurement["environment"]["xclbin"]["packages"]["xrt"][
-                    "version"
-                ],
-            }
-        )
+        if args.execution_provider == "CPU":
+            writer.writerow(
+                {
+                    "timestamp": time.strftime("%Y%m%d%H%M%S"),
+                    "command": measurement["run"]["command"],
+                    "p_batchsize": args.batchsize,
+                    "p_config": args.config,
+                    "p_core": args.core,
+                    "p_execution_provider": args.execution_provider,
+                    "p_infinite": args.infinite,
+                    "p_instance_count": args.instance_count,
+                    "p_intra_op_num_threads": args.intra_op_num_threads,
+                    "p_json": args.json,
+                    "p_min_interval": args.min_interval,
+                    "p_model": args.model,
+                    "p_no_inference": args.no_inference,
+                    "p_num": args.num,
+                    "p_power": "NA",
+                    "p_renew": args.renew,
+                    "p_timelimit": args.timelimit,
+                    "p_threads": args.threads,
+                    "p_warmup": args.warmup,
+                    "benchmark_release": measurement["run"]["benchmark_release"],
+                    "model": measurement["run"]["model"],
+                    "execution_provider": measurement["run"]["execution_provider"],
+                    "total_throughput": measurement["results"]["performance"][
+                        "total_throughput"
+                    ],
+                    "average_latency": measurement["results"]["performance"][
+                        "average_latency"
+                    ],
+                    "apu_perf_pow": measurement["results"]["efficency perf/W"][
+                        "apu_perf_pow"
+                    ],
+                    "energy_apu": measurement["results"]["energy mJ/frame"]["apu"],
+                    "energy_cpu": measurement["results"]["energy mJ/frame"]["cpu"],
+                    "energy_npu": measurement["results"]["energy mJ/frame"]["npu"],
+                    "energy_mem": measurement["results"]["energy mJ/frame"]["mem"],
+                    "MPNPUCLK": measurement["system"]["frequency"]["MPNPUCLK"],
+                    "NPUHCLK": measurement["system"]["frequency"]["NPUHCLK"],
+                    "FCLK": measurement["system"]["frequency"]["FCLK"],
+                    "LCLK": measurement["system"]["frequency"]["LCLK"],
+                    "V_CORE0": measurement["system"]["voltages"]["CORE0"],
+                    "V_CORE1": measurement["system"]["voltages"]["CORE1"],
+                    "V_CORE2": measurement["system"]["voltages"]["CORE2"],
+                    "V_CORE3": measurement["system"]["voltages"]["CORE3"],
+                    "V_CORE4": measurement["system"]["voltages"]["CORE4"],
+                    "V_CORE5": measurement["system"]["voltages"]["CORE5"],
+                    "V_CORE6": measurement["system"]["voltages"]["CORE6"],
+                    "V_CORE7": measurement["system"]["voltages"]["CORE7"],
+                    "processor": measurement["system"]["hw"]["processor"],
+                    "num_cores": measurement["system"]["hw"]["num_cores"],
+                    "os_version": measurement["system"]["os"]["os_version"],
+                    "CPU_usage": measurement["system"]["resources"]["CPU_usage"],
+                    "Memory": measurement["system"]["resources"]["Memory"],
+                    "Swap_Memory": measurement["system"]["resources"]["Swap_Memory"],
+                    "npu_driver": measurement["system"]["driver"]["npu"],
+                }
+            )
+        else:
+            writer.writerow(
+                {
+                    "timestamp": time.strftime("%Y%m%d%H%M%S"),
+                    "command": measurement["run"]["command"],
+                    "p_batchsize": args.batchsize,
+                    "p_config": args.config,
+                    "p_core": args.core,
+                    "p_execution_provider": args.execution_provider,
+                    "p_infinite": args.infinite,
+                    "p_instance_count": args.instance_count,
+                    "p_intra_op_num_threads": args.intra_op_num_threads,
+                    "p_json": args.json,
+                    "p_min_interval": args.min_interval,
+                    "p_model": args.model,
+                    "p_no_inference": args.no_inference,
+                    "p_num": args.num,
+                    "p_power": "NA",
+                    "p_renew": args.renew,
+                    "p_timelimit": args.timelimit,
+                    "p_threads": args.threads,
+                    "p_warmup": args.warmup,
+                    "benchmark_release": measurement["run"]["benchmark_release"],
+                    "model": measurement["run"]["model"],
+                    "execution_provider": measurement["run"]["execution_provider"],
+                    "total_throughput": measurement["results"]["performance"][
+                        "total_throughput"
+                    ],
+                    "average_latency": measurement["results"]["performance"][
+                        "average_latency"
+                    ],
+                    "apu_perf_pow": measurement["results"]["efficency perf/W"][
+                        "apu_perf_pow"
+                    ],
+                    "energy_apu": measurement["results"]["energy mJ/frame"]["apu"],
+                    "energy_cpu": measurement["results"]["energy mJ/frame"]["cpu"],
+                    "energy_npu": measurement["results"]["energy mJ/frame"]["npu"],
+                    "energy_mem": measurement["results"]["energy mJ/frame"]["mem"],
+                    "MPNPUCLK": measurement["system"]["frequency"]["MPNPUCLK"],
+                    "NPUHCLK": measurement["system"]["frequency"]["NPUHCLK"],
+                    "FCLK": measurement["system"]["frequency"]["FCLK"],
+                    "LCLK": measurement["system"]["frequency"]["LCLK"],
+                    "V_CORE0": measurement["system"]["voltages"]["CORE0"],
+                    "V_CORE1": measurement["system"]["voltages"]["CORE1"],
+                    "V_CORE2": measurement["system"]["voltages"]["CORE2"],
+                    "V_CORE3": measurement["system"]["voltages"]["CORE3"],
+                    "V_CORE4": measurement["system"]["voltages"]["CORE4"],
+                    "V_CORE5": measurement["system"]["voltages"]["CORE5"],
+                    "V_CORE6": measurement["system"]["voltages"]["CORE6"],
+                    "V_CORE7": measurement["system"]["voltages"]["CORE7"],
+                    "processor": measurement["system"]["hw"]["processor"],
+                    "num_cores": measurement["system"]["hw"]["num_cores"],
+                    "os_version": measurement["system"]["os"]["os_version"],
+                    "CPU_usage": measurement["system"]["resources"]["CPU_usage"],
+                    "Memory": measurement["system"]["resources"]["Memory"],
+                    "Swap_Memory": measurement["system"]["resources"]["Swap_Memory"],
+                    "npu_driver": measurement["system"]["driver"]["npu"],
+                    "xclbin_path": measurement["environment"]["xclbin"]["xclbin_path"],
+                    "vaip": measurement["environment"]["xclbin"]["packages"]["vaip"][
+                        "version"
+                    ],
+                    "target_factory": measurement["environment"]["xclbin"]["packages"][
+                        "target_factory"
+                    ]["version"],
+                    "xcompiler": measurement["environment"]["xclbin"]["packages"][
+                        "xcompiler"
+                    ]["version"],
+                    "onnxruntime": measurement["environment"]["xclbin"]["packages"][
+                        "onnxrutnime"
+                    ]["version"],
+                    "graph_engine": measurement["environment"]["xclbin"]["packages"][
+                        "graph_engine"
+                    ]["version"],
+                    "xrt": measurement["environment"]["xclbin"]["packages"]["xrt"][
+                        "version"
+                    ],
+                }
+            )
     ggprint(f"Data appended to {csv_file}")
 
 def ask_update():

@@ -62,7 +62,11 @@ def profile(args, num):
     inferences = 0 
     so = rt.SessionOptions()
     # Enable profiling by providing the profiling options
-    # so.enable_profiling = True
+    if args.verbose == 0:
+        so.enable_profiling = True
+        so.log_severity_level = 0
+    else: 
+        so.enable_profiling = False
 
     EP_List = []
 
