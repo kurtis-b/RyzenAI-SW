@@ -20,7 +20,7 @@
     "Subsequent token minimum": 151068
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 679127,
     "Subsequent token times": [
      151434,
      165621,
@@ -33,13 +33,9 @@
      152270,
      160933
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 161378,
     "Subsequent token maximum": 166911,
-    "Subsequent token minimum": 151434,
-    "First token time": 679127
+    "Subsequent token minimum": 151434
    },
    "Gather": {
     "First token time": 9,
@@ -25752,7 +25748,7 @@
     "Subsequent token minimum": 158199
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 859262,
     "Subsequent token times": [
      182439,
      160230,
@@ -25765,13 +25761,9 @@
      164527,
      164043
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 167263,
     "Subsequent token maximum": 186367,
-    "Subsequent token minimum": 158652,
-    "First token time": 859262
+    "Subsequent token minimum": 158652
    },
    "Gather": {
     "First token time": 12,
@@ -51484,7 +51476,7 @@
     "Subsequent token minimum": 156021
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 1281071,
     "Subsequent token times": [
      167979,
      166455,
@@ -51497,13 +51489,9 @@
      156560,
      161217
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 167020,
     "Subsequent token maximum": 211085,
-    "Subsequent token minimum": 156488,
-    "First token time": 1281071
+    "Subsequent token minimum": 156488
    },
    "Gather": {
     "First token time": 13,
@@ -77216,7 +77204,7 @@
     "Subsequent token minimum": 155463
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 2059115,
     "Subsequent token times": [
      169952,
      155870,
@@ -77229,13 +77217,9 @@
      168485,
      174072
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 175058,
     "Subsequent token maximum": 242239,
-    "Subsequent token minimum": 155870,
-    "First token time": 2059115
+    "Subsequent token minimum": 155870
    },
    "Gather": {
     "First token time": 13,
@@ -102948,7 +102932,7 @@
     "Subsequent token minimum": 168929
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 3740604,
     "Subsequent token times": [
      191095,
      179409,
@@ -102961,13 +102945,9 @@
      169849,
      177416
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 180040,
     "Subsequent token maximum": 191095,
-    "Subsequent token minimum": 169363,
-    "First token time": 3740604
+    "Subsequent token minimum": 169363
    },
    "Gather": {
     "First token time": 13,
@@ -128680,7 +128660,7 @@
     "Subsequent token minimum": 179261
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 7451911,
     "Subsequent token times": [
      215018,
      187055,
@@ -128693,13 +128673,9 @@
      209698,
      195084
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 210085,
     "Subsequent token maximum": 309315,
-    "Subsequent token minimum": 179681,
-    "First token time": 7451911
+    "Subsequent token minimum": 179681
    },
    "Gather": {
     "First token time": 14,
@@ -154412,7 +154388,7 @@
     "Subsequent token minimum": 215495
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 15305589,
     "Subsequent token times": [
      263409,
      241251,
@@ -154425,13 +154401,9 @@
      238461,
      236450
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 241329,
     "Subsequent token maximum": 263409,
-    "Subsequent token minimum": 216694,
-    "First token time": 15305589
+    "Subsequent token minimum": 216694
    },
    "Gather": {
     "First token time": 12,
@@ -180144,7 +180116,7 @@
     "Subsequent token minimum": 299341
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 32046898,
     "Subsequent token times": [
      346675,
      317624,
@@ -180157,13 +180129,9 @@
      299785,
      309026
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 317695,
     "Subsequent token maximum": 346675,
-    "Subsequent token minimum": 299785,
-    "First token time": 32046898
+    "Subsequent token minimum": 299785
    },
    "Gather": {
     "First token time": 15,
@@ -205876,7 +205844,7 @@
     "Subsequent token minimum": 403048
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 52478268,
     "Subsequent token times": [
      455865,
      413644,
@@ -205889,13 +205857,9 @@
      421040,
      419469
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 438146,
     "Subsequent token maximum": 598024,
-    "Subsequent token minimum": 403459,
-    "First token time": 52478268
+    "Subsequent token minimum": 403459
    },
    "Gather": {
     "First token time": 15,
@@ -231608,7 +231572,7 @@
     "Subsequent token minimum": 537061
    },
    "model_run": {
-    "First token times": [],
+    "First token time": 73306168,
     "Subsequent token times": [
      632139,
      552893,
@@ -231621,13 +231585,9 @@
      549949,
      537530
     ],
-    "First token average": -1,
-    "First token maximum": -1,
-    "First token minimum": -1,
     "Subsequent token average": 555399,
     "Subsequent token maximum": 632139,
-    "Subsequent token minimum": 537530,
-    "First token time": 73306168
+    "Subsequent token minimum": 537530
    },
    "Gather": {
     "First token time": 15,

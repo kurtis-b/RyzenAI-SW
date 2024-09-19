@@ -101,11 +101,8 @@ def find_execution_distribution(cpu_file, npu_file, output_file_name):
                 f'{EXEC_TIME_PREFIX_2} token minimum': -1,
             },
             "model_run": {
-                f'{EXEC_TIME_PREFIX_1} token times': [],
+                f'{EXEC_TIME_PREFIX_1} token time': -1,
                 f'{EXEC_TIME_PREFIX_2} token times': [],
-                f'{EXEC_TIME_PREFIX_1} token average': -1,
-                f'{EXEC_TIME_PREFIX_1} token maximum': -1,
-                f'{EXEC_TIME_PREFIX_1} token minimum': -1,
                 f'{EXEC_TIME_PREFIX_2} token average': -1,
                 f'{EXEC_TIME_PREFIX_2} token maximum': -1,
                 f'{EXEC_TIME_PREFIX_2} token minimum': -1,
@@ -341,7 +338,7 @@ if __name__ == "__main__":
     npu_file = "onnxruntime_profile__npu_run.json"    
     output_file_name = 'execution_time_distribution'
 
-    # compare_json_incremental(cpu_file, npu_file)
+    compare_json_incremental(cpu_file, npu_file)
     find_execution_distribution(cpu_file, npu_file, output_file_name)
 
     cpu_file = f"{output_file_name}_cpu.json"
