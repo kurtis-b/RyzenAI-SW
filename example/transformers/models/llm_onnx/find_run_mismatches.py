@@ -253,35 +253,69 @@ def calculate_ratio(time1, time2):
     
     return time1_microseconds / time2_microseconds
 
-def generate_bar_chart(data, title, save_name):
+def generate_bar_chart(data, title, save_name=None, large_set=False, order_values=False):
     # Generate session data bar chart
-    x = np.arange(len(data['x_labels']))  # the label locations
-    width = 0.25  # the width of the bars
+    width = 0.5  # the width of the bars
     multiplier = 0
 
-    fig, ax = plt.subplots(layout='constrained')
+    if large_set:
+        fig, ax = plt.subplots(figsize=(16,8))
+    else:
+        fig, ax = plt.subplots(figsize=(8, 6))
 
+    chart_data = {'x_labels': data['x_labels'], 'npu:cpu': data['npu']}
     if len(data['cpu']) == len(data['npu']):
         for idx in range(len(data['cpu'])):
-            data['npu'][idx] = calculate_ratio(data['npu'][idx], data['cpu'][idx])
-            data['cpu'][idx] = 1.0
+            chart_data['npu:cpu'][idx] = round(calculate_ratio(chart_data['npu:cpu'][idx], data['cpu'][idx]), 2)
+        if order_values:
+            new_order = np.array(chart_data['npu:cpu']).argsort()[::-1]  # Order in descending order
+            for key, values in chart_data.items():
+                values = [values[i] for i in new_order]
+                chart_data[key] = values
+    x = np.arange(len(chart_data['x_labels']))  # the label locations
 
-    for attribute, measurement in data.items():
+    threshold = 1
+    hatches = ['x' if chart_data['x_labels'][i] == 'MatMulNBits' else '' for i in range(len(chart_data['x_labels']))]
+    labels = ['Offloaded to NPU' if chart_data['x_labels'][i] == 'MatMulNBits' else 'Not offloaded to NPU' for i in range(len(chart_data['x_labels']))]
+    found_label = []
+    for i, label in enumerate(labels):
+        if label not in found_label:
+            found_label.append(label)
+        else:
+            labels[i] = ''
+    for attribute, measurement in chart_data.items():
         if attribute == 'x_labels':
             continue
         offset = width * multiplier
-        rects = ax.bar(x + offset, measurement, width, label=attribute)
-        ax.bar_label(rects, padding=3)
+        above_threshold = np.maximum(np.array(measurement) - threshold, 0)
+        below_threshold = np.minimum(np.array(measurement), threshold)
+        if large_set:
+            rects = ax.bar(x + offset, below_threshold, width, color='green', label=labels, edgecolor='black', hatch=hatches)
+            rects = ax.bar(x + offset, above_threshold, width, color='red', label=labels, edgecolor='black', bottom=below_threshold, hatch=hatches)
+        else:
+                rects = ax.bar(x + offset, below_threshold, width, color='green')
+                rects = ax.bar(x + offset, above_threshold, width, color='red', bottom=below_threshold)
+        # ax.bar_label(rects, padding=3)
         multiplier += 1
 
     # Add some text for labels, title and custom x-axis tick labels, etc.
-    ax.set_ylabel('Duration')
-    ax.set_title('Session measurements between CPU and NPU')
-    ax.set_xticks(x + (1/len(data['x_labels']))*width, data['x_labels'])
-    ax.legend(loc='best')
+    ax.set_ylabel('Ratio of NPU:CPU Run Time')
+    ax.set_xticks(x + (1/len(chart_data['x_labels']))*width, chart_data['x_labels'])
+    # Stagger x axis ticks if there's a lot of columns
+    if large_set:
+        for tick in ax.xaxis.get_major_ticks()[1::2]:
+            tick.set_pad(15)
+        ax.legend(loc='best')
+    # We change the fontsize of minor ticks label 
+    if large_set:
+        ax.tick_params(axis='both', which='major', labelsize=7)
+        ax.tick_params(axis='both', which='minor', labelsize=5)
     plt.title(title)
-    plt.savefig(save_name + '.pdf')
-    plt.show()
+    ax.axhline(y=1,linewidth=1, color='black', ls='dashed') 
+    plt.tight_layout()
+    # plt.show()
+    if save_name is not None:
+        plt.savefig(save_name + '.pdf', bbox_inches="tight")
 
 def compare_execution_times(cpu_file, npu_file):
     with open(cpu_file, 'r') as f_cpu, open(npu_file, 'r') as f_npu:
@@ -293,7 +327,11 @@ def compare_execution_times(cpu_file, npu_file):
 
         bar_chart_data = {'session_init': {'x_labels': [], 'cpu': [], 'npu': []},
                           'model_run_first': {'x_labels': [], 'cpu': [], 'npu': []},
-                          'model_run_subsequent': {'x_labels': [], 'cpu': [], 'npu': []}}
+                          'model_run_subsequent': {'x_labels': [], 'cpu': [], 'npu': []},
+                          'mat_mul_op_first': {'x_labels': [], 'cpu': [], 'npu': []},
+                          'mat_mul_op_subsequent': {'x_labels': [], 'cpu': [], 'npu': []},
+                          'each_op_task_10_first': {'x_labels': [], 'cpu': [-1 for i in range(2,len(cpu_obj['Task 1'].keys()))], 'npu': [-1 for i in range(2,len(npu_obj['Task 1'].keys()))]},
+                          'each_op_task_10_subsequent': {'x_labels': [], 'cpu': [-1 for i in range(2,len(cpu_obj['Task 1'].keys()))], 'npu': [-1 for i in range(2,len(npu_obj['Task 1'].keys()))]}}
         # Go through the CPU file and initialize data
         while cpu_obj is not None:
             cpu_runs = [key for key in cpu_obj.keys() if 'Task' in key]
@@ -301,9 +339,24 @@ def compare_execution_times(cpu_file, npu_file):
                 for node, measurement in cpu_obj[cpu_runs[0]].items():
                     if node == 'model_run':
                         bar_chart_data['model_run_first']['x_labels'].append(cpu_runs[0])
-                        bar_chart_data['model_run_subsequent']['x_labels'].append(cpu_runs[0])
                         bar_chart_data['model_run_first']['cpu'].append(measurement['First token time'])
+                        bar_chart_data['model_run_subsequent']['x_labels'].append(cpu_runs[0])
                         bar_chart_data['model_run_subsequent']['cpu'].append(measurement['Subsequent token average'])
+                    if node == 'MatMulNBits':
+                        bar_chart_data['mat_mul_op_first']['x_labels'].append(cpu_runs[0])
+                        bar_chart_data['mat_mul_op_first']['cpu'].append(measurement['First token time'])
+                        bar_chart_data['mat_mul_op_subsequent']['x_labels'].append(cpu_runs[0])
+                        bar_chart_data['mat_mul_op_subsequent']['cpu'].append(measurement['Subsequent token average'])
+                if '10' in cpu_runs[0]:
+                    for node, measurement in cpu_obj[cpu_runs[0]].items():
+                        if node == 'model_run' or node == 'SequentialExecutor::Execute':
+                            continue
+                        bar_chart_data['each_op_task_10_first']['x_labels'].append(node)
+                        idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
+                        bar_chart_data['each_op_task_10_first']['cpu'][idx[0]] = measurement['First token time']
+                        bar_chart_data['each_op_task_10_subsequent']['x_labels'].append(node)
+                        idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
+                        bar_chart_data['each_op_task_10_subsequent']['cpu'][idx[0]] = measurement['Subsequent token average']
             else: # Measurements for model loading and session initialization 
                 # For the bar chart, the label locations will be the object's keys
                 for key, vals in cpu_obj.items():
@@ -320,6 +373,23 @@ def compare_execution_times(cpu_file, npu_file):
                     if node == 'model_run':
                         bar_chart_data['model_run_first']['npu'].append(measurement['First token time'])
                         bar_chart_data['model_run_subsequent']['npu'].append(measurement['Subsequent token average'])
+                    if node == 'vitisaiep':
+                        bar_chart_data['mat_mul_op_first']['npu'].append(measurement['First token time'])
+                        bar_chart_data['mat_mul_op_subsequent']['npu'].append(measurement['Subsequent token average'])
+                if '10' in npu_runs[0]:
+                    for node, measurement in npu_obj[npu_runs[0]].items():
+                        if node == 'model_run' or node == 'SequentialExecutor::Execute':
+                            continue
+                        if node == 'vitisaiep':
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == 'MatMulNBits']
+                            bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token time']
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == 'MatMulNBits']
+                            bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
+                        else:
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
+                            bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token time']
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
+                            bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
             else: # Measurements for model loading and session initialization 
                 # For the bar chart, the label locations will be the object's keys
                 for key, vals in npu_obj.items():
@@ -330,6 +400,22 @@ def compare_execution_times(cpu_file, npu_file):
         # TODO: Confirm that below is the correct description of these comparison
         generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: 1st Prefill+Decoder+Post-Processing Pass", 'model_run_1st_pass') 
         generate_bar_chart(bar_chart_data['model_run_subsequent'], "Model Run: Avg of Subsequent Prefill+Decoder+Post-Processing Pass", 'model_run_subseq_pass') 
+        generate_bar_chart(bar_chart_data['mat_mul_op_first'], "Mat Mul: 1st Pass", 'mat_mul_1st_pass') 
+        generate_bar_chart(bar_chart_data['mat_mul_op_subsequent'], "Mat Mul: Avg of Subsequent Pass", 'mat_mul_subseq_pass') 
+
+        # TODO: Compare between runs the other operators that aren't offloaded to the NPU
+        # Split dict in half--no need to use this anymore since will just use all items in the same graph. but keeping here in case I need to use the method later
+        # all_ops_first_half = {key:bar_chart_data['each_op_task_10_first'][key][len(measurement)//2:] for key, measurement in bar_chart_data['each_op_task_10_first'].items()}
+        # al_ops_second_half = {key:bar_chart_data['each_op_task_10_first'][key][:len(measurement)//2] for key, measurement in bar_chart_data['each_op_task_10_first'].items()}
+
+        # For the next graph, swap the first two items to make the graph look nicer. The second item has a long name, and doing the swap prevents the staggered
+        # x tick labels from overlapping.
+        # i, j = 0, 1
+        # for key, measurements in bar_chart_data['each_op_task_10_first'].items():
+        #     measurements[i], measurements[j] = measurements[j], measurements[i]
+        #     bar_chart_data['each_op_task_10_first'][key] = measurements
+        generate_bar_chart(bar_chart_data['each_op_task_10_first'], title="Task 10 All Ops: 1st Pass", save_name='task_10_all_ops_1st_pass', large_set=True, order_values=True) 
+        generate_bar_chart(bar_chart_data['each_op_task_10_subsequent'], title="Task 10 All Ops: Subsequent Pass", save_name='task_10_all_ops_subseq_pass', large_set=True, order_values=True) 
 
 
 
@@ -338,8 +424,8 @@ if __name__ == "__main__":
     npu_file = "onnxruntime_profile__npu_run.json"    
     output_file_name = 'execution_time_distribution'
 
-    compare_json_incremental(cpu_file, npu_file)
-    find_execution_distribution(cpu_file, npu_file, output_file_name)
+    # compare_json_incremental(cpu_file, npu_file)
+    # find_execution_distribution(cpu_file, npu_file, output_file_name)
 
     cpu_file = f"{output_file_name}_cpu.json"
     npu_file = f"{output_file_name}_npu.json"
