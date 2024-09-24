@@ -143,19 +143,19 @@ def find_execution_distribution(cpu_file, npu_file, output_file_name):
                         if "VitisAIExecutionProvider" in name:
                             if counter == 1:
                                 if 'vitisaiep' not in result[run][run_key]:
-                                    result[run][run_key]['vitisaiep'] = {f'{EXEC_TIME_PREFIX_1} token time': parser_obj[DURATION_PARSER_KEY],
+                                    result[run][run_key]['vitisaiep'] = {f'{EXEC_TIME_PREFIX_1} token times': [parser_obj[DURATION_PARSER_KEY]],
                                                                 f'{EXEC_TIME_PREFIX_2} token times': []}
                                 else:
-                                    result[run][run_key]['vitisaiep'][f'{EXEC_TIME_PREFIX_1} token time'] = parser_obj[DURATION_PARSER_KEY]
+                                    result[run][run_key]['vitisaiep'][f'{EXEC_TIME_PREFIX_1} token times'].append(parser_obj[DURATION_PARSER_KEY])
                             else:
                                 result[run][run_key]['vitisaiep'][f'{EXEC_TIME_PREFIX_2} token times'].append(parser_obj[DURATION_PARSER_KEY])
                         else:
                             if counter == 1:
                                 if parser_obj[ARGS_KEY][OP_NAME_KEY] not in result[run][run_key]:
-                                    result[run][run_key][parser_obj[ARGS_KEY][OP_NAME_KEY]] = {f'{EXEC_TIME_PREFIX_1} token time': parser_obj[DURATION_PARSER_KEY],
+                                    result[run][run_key][parser_obj[ARGS_KEY][OP_NAME_KEY]] = {f'{EXEC_TIME_PREFIX_1} token times': [parser_obj[DURATION_PARSER_KEY]],
                                                                                 f'{EXEC_TIME_PREFIX_2} token times': []}
                                 else:
-                                    result[run][run_key][parser_obj[ARGS_KEY][OP_NAME_KEY]][f'{EXEC_TIME_PREFIX_1} token time'] = parser_obj[DURATION_PARSER_KEY]
+                                    result[run][run_key][parser_obj[ARGS_KEY][OP_NAME_KEY]][f'{EXEC_TIME_PREFIX_1} token times'].append(parser_obj[DURATION_PARSER_KEY])
                             else:
                                 result[run][run_key][parser_obj[ARGS_KEY][OP_NAME_KEY]][f'{EXEC_TIME_PREFIX_2} token times'].append(parser_obj[DURATION_PARSER_KEY])
                 parser_obj = next(parser, None)
@@ -163,15 +163,26 @@ def find_execution_distribution(cpu_file, npu_file, output_file_name):
             for run in range(NUM_PROMPTS):
                 run_key = f"Task {run+1}"
                 for exec_name, data in result[run][run_key].items():
-                    if exec_name != 'model_loading_uri' and exec_name != 'session_initialization': 
+                    if exec_name == 'model_loading_uri' or exec_name == 'session_initialization': 
+                        continue
+                    elif exec_name == "SequentialExecutor::Execute" or exec_name == "model_run":
                         key_prefixes = [EXEC_TIME_PREFIX_2]
                         for prefix in key_prefixes:
                             microseconds_data = []  # Need to convert the time values to microseconds since they're in a particular format
                             for times in data[f'{prefix} token times']:
                                 microseconds_data.append(time_to_microseconds(times))
-                            data[f'{prefix} token average'] = microseconds_to_time_format(round(np.average(microseconds_data)))
-                            data[f'{prefix} token maximum'] = microseconds_to_time_format(round(np.max(microseconds_data)))
-                            data[f'{prefix} token minimum'] = microseconds_to_time_format(round(np.min(microseconds_data)))
+                            result[run][run_key][exec_name][f'{prefix} token average'] = microseconds_to_time_format(round(np.average(microseconds_data)))
+                            result[run][run_key][exec_name][f'{prefix} token maximum'] = microseconds_to_time_format(round(np.max(microseconds_data)))
+                            result[run][run_key][exec_name][f'{prefix} token minimum'] = microseconds_to_time_format(round(np.min(microseconds_data)))
+                    else:
+                        key_prefixes = [EXEC_TIME_PREFIX_1, EXEC_TIME_PREFIX_2]
+                        for prefix in key_prefixes:
+                            microseconds_data = []  # Need to convert the time values to microseconds since they're in a particular format
+                            for times in data[f'{prefix} token times']:
+                                microseconds_data.append(time_to_microseconds(times))
+                            result[run][run_key][exec_name][f'{prefix} token average'] = microseconds_to_time_format(round(np.average(microseconds_data)))
+                            result[run][run_key][exec_name][f'{prefix} token maximum'] = microseconds_to_time_format(round(np.max(microseconds_data)))
+                            result[run][run_key][exec_name][f'{prefix} token minimum'] = microseconds_to_time_format(round(np.min(microseconds_data)))
                     
             # Save data to an output JSON file
             save_data_to_json(result, f'{output_file_name}_{file_name}.json', indent=1)
@@ -313,9 +324,35 @@ def generate_bar_chart(data, title, save_name=None, large_set=False, order_value
     plt.title(title)
     ax.axhline(y=1,linewidth=1, color='black', ls='dashed') 
     plt.tight_layout()
-    # plt.show()
     if save_name is not None:
         plt.savefig(save_name + '.pdf', bbox_inches="tight")
+    # plt.show()
+
+def generate_pie_chart(data, title, save_name=None, order_values=False):
+    fig, ax = plt.subplots(figsize=(12,6))
+    model_run_time = data['model_run']
+    chart_data = {'labels': data['labels'], 'model_run_ratio_pct': data['exec_time']}
+    for i, run_time in enumerate(chart_data['model_run_ratio_pct']):
+        chart_data['model_run_ratio_pct'][i] = 100 * (run_time / model_run_time)
+
+    chart_data['labels'].append('UNKNOWN--Start/Stop Overhead?')
+    chart_data['model_run_ratio_pct'].append(100-sum(chart_data['model_run_ratio_pct']))
+
+    if order_values:
+        new_order = np.array(chart_data['model_run_ratio_pct']).argsort()[::-1]  # Order in descending order
+        for key, values in chart_data.items():
+            values = [values[i] for i in new_order]
+            chart_data[key] = values
+
+    patches, texts = ax.pie(chart_data['model_run_ratio_pct'])
+    labels = ['{0} - {1:1.2f} %'.format(i,j) for i,j in zip(chart_data['labels'], chart_data['model_run_ratio_pct'])]
+    plt.legend(patches, labels, loc='best', bbox_to_anchor=(-0.1, 1.),
+           fontsize=8)
+    plt.title(title)
+    if save_name is not None:
+        plt.savefig(save_name + '.pdf')
+    # plt.show()
+
 
 def compare_execution_times(cpu_file, npu_file):
     with open(cpu_file, 'r') as f_cpu, open(npu_file, 'r') as f_npu:
@@ -332,6 +369,10 @@ def compare_execution_times(cpu_file, npu_file):
                           'mat_mul_op_subsequent': {'x_labels': [], 'cpu': [], 'npu': []},
                           'each_op_task_10_first': {'x_labels': [], 'cpu': [-1 for i in range(2,len(cpu_obj['Task 1'].keys()))], 'npu': [-1 for i in range(2,len(npu_obj['Task 1'].keys()))]},
                           'each_op_task_10_subsequent': {'x_labels': [], 'cpu': [-1 for i in range(2,len(cpu_obj['Task 1'].keys()))], 'npu': [-1 for i in range(2,len(npu_obj['Task 1'].keys()))]}}
+        pie_chart_data = {'cpu_run_ops_to_model_run_subsequent': {'model_run': -1, 'labels': [], 'exec_time': [0 for i in range(2,len(cpu_obj['Task 1'].keys()))]}, 
+                          'npu_run_ops_to_model_run_subsequent': {'model_run': -1, 'labels': [], 'exec_time': [0 for i in range(2,len(npu_obj['Task 1'].keys()))]},
+                          'cpu_run_ops_to_model_run_first': {'model_run': -1, 'labels': [], 'exec_time': [0 for i in range(2,len(cpu_obj['Task 1'].keys()))]}, 
+                          'npu_run_ops_to_model_run_first': {'model_run': -1, 'labels': [], 'exec_time': [0 for i in range(2,len(npu_obj['Task 1'].keys()))]}}
         # Go through the CPU file and initialize data
         while cpu_obj is not None:
             cpu_runs = [key for key in cpu_obj.keys() if 'Task' in key]
@@ -344,19 +385,33 @@ def compare_execution_times(cpu_file, npu_file):
                         bar_chart_data['model_run_subsequent']['cpu'].append(measurement['Subsequent token average'])
                     if node == 'MatMulNBits':
                         bar_chart_data['mat_mul_op_first']['x_labels'].append(cpu_runs[0])
-                        bar_chart_data['mat_mul_op_first']['cpu'].append(measurement['First token time'])
+                        bar_chart_data['mat_mul_op_first']['cpu'].append(measurement['First token average'])
                         bar_chart_data['mat_mul_op_subsequent']['x_labels'].append(cpu_runs[0])
                         bar_chart_data['mat_mul_op_subsequent']['cpu'].append(measurement['Subsequent token average'])
                 if '10' in cpu_runs[0]:
                     for node, measurement in cpu_obj[cpu_runs[0]].items():
-                        if node == 'model_run' or node == 'SequentialExecutor::Execute':
+                        if node == 'model_run':
+                            pie_chart_data['cpu_run_ops_to_model_run_first']['model_run'] = time_to_microseconds(measurement['First token time'])
+                            for run_time in measurement['Subsequent token times']:
+                                pie_chart_data['cpu_run_ops_to_model_run_subsequent']['model_run'] = pie_chart_data['cpu_run_ops_to_model_run_subsequent']['model_run'] + time_to_microseconds(run_time)
+                        elif node == 'SequentialExecutor::Execute':
                             continue
-                        bar_chart_data['each_op_task_10_first']['x_labels'].append(node)
-                        idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
-                        bar_chart_data['each_op_task_10_first']['cpu'][idx[0]] = measurement['First token time']
-                        bar_chart_data['each_op_task_10_subsequent']['x_labels'].append(node)
-                        idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
-                        bar_chart_data['each_op_task_10_subsequent']['cpu'][idx[0]] = measurement['Subsequent token average']
+                        else:
+                            bar_chart_data['each_op_task_10_first']['x_labels'].append(node)
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
+                            bar_chart_data['each_op_task_10_first']['cpu'][idx[0]] = measurement['First token average']
+                            bar_chart_data['each_op_task_10_subsequent']['x_labels'].append(node)
+                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
+                            bar_chart_data['each_op_task_10_subsequent']['cpu'][idx[0]] = measurement['Subsequent token average']
+
+                            pie_chart_data['cpu_run_ops_to_model_run_first']['labels'].append(node)
+                            idx = [i for i, key in enumerate(pie_chart_data['cpu_run_ops_to_model_run_first']['labels']) if key == node]
+                            for run_time in measurement['First token times']:
+                                pie_chart_data['cpu_run_ops_to_model_run_first']['exec_time'][idx[0]] = pie_chart_data['cpu_run_ops_to_model_run_first']['exec_time'][idx[0]] + time_to_microseconds(run_time)
+                            pie_chart_data['cpu_run_ops_to_model_run_subsequent']['labels'].append(node)
+                            idx = [i for i, key in enumerate(pie_chart_data['cpu_run_ops_to_model_run_subsequent']['labels']) if key == node]
+                            for run_time in measurement['Subsequent token times']:
+                                pie_chart_data['cpu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] = pie_chart_data['cpu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] + time_to_microseconds(run_time)
             else: # Measurements for model loading and session initialization 
                 # For the bar chart, the label locations will be the object's keys
                 for key, vals in cpu_obj.items():
@@ -374,22 +429,47 @@ def compare_execution_times(cpu_file, npu_file):
                         bar_chart_data['model_run_first']['npu'].append(measurement['First token time'])
                         bar_chart_data['model_run_subsequent']['npu'].append(measurement['Subsequent token average'])
                     if node == 'vitisaiep':
-                        bar_chart_data['mat_mul_op_first']['npu'].append(measurement['First token time'])
+                        bar_chart_data['mat_mul_op_first']['npu'].append(measurement['First token average'])
                         bar_chart_data['mat_mul_op_subsequent']['npu'].append(measurement['Subsequent token average'])
                 if '10' in npu_runs[0]:
                     for node, measurement in npu_obj[npu_runs[0]].items():
-                        if node == 'model_run' or node == 'SequentialExecutor::Execute':
+                        if node == 'model_run':
+                            pie_chart_data['npu_run_ops_to_model_run_first']['model_run'] = time_to_microseconds(measurement['First token time'])
+                            for run_time in measurement['Subsequent token times']:
+                                pie_chart_data['npu_run_ops_to_model_run_subsequent']['model_run'] = pie_chart_data['npu_run_ops_to_model_run_subsequent']['model_run'] + time_to_microseconds(run_time)
+                        elif node == 'SequentialExecutor::Execute':
                             continue
-                        if node == 'vitisaiep':
-                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == 'MatMulNBits']
-                            bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token time']
-                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == 'MatMulNBits']
-                            bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
                         else:
-                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
-                            bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token time']
-                            idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
-                            bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
+                            if node == 'vitisaiep':
+                                idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == 'MatMulNBits']
+                                bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token average']
+                                idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == 'MatMulNBits']
+                                bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
+
+                                pie_chart_data['npu_run_ops_to_model_run_first']['labels'].append(node + ' (MatMulNBits)')
+                                idx = [i for i, key in enumerate(pie_chart_data['npu_run_ops_to_model_run_first']['labels']) if node in key]
+                                for run_time in measurement['First token times']:
+                                    pie_chart_data['npu_run_ops_to_model_run_first']['exec_time'][idx[0]] = pie_chart_data['npu_run_ops_to_model_run_first']['exec_time'][idx[0]] + time_to_microseconds(run_time)
+
+                                pie_chart_data['npu_run_ops_to_model_run_subsequent']['labels'].append(node + ' (MatMulNBits)')
+                                idx = [i for i, key in enumerate(pie_chart_data['npu_run_ops_to_model_run_subsequent']['labels']) if node in key]
+                                for run_time in measurement['Subsequent token times']:
+                                    pie_chart_data['npu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] = pie_chart_data['npu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] + time_to_microseconds(run_time)
+                            else:
+                                idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_first']['x_labels']) if key == node]
+                                bar_chart_data['each_op_task_10_first']['npu'][idx[0]] = measurement['First token average']
+                                idx = [i for i, key in enumerate(bar_chart_data['each_op_task_10_subsequent']['x_labels']) if key == node]
+                                bar_chart_data['each_op_task_10_subsequent']['npu'][idx[0]] = measurement['Subsequent token average']
+
+                                pie_chart_data['npu_run_ops_to_model_run_first']['labels'].append(node)
+                                idx = [i for i, key in enumerate(pie_chart_data['npu_run_ops_to_model_run_first']['labels']) if key == node]
+                                for run_time in measurement['First token times']:
+                                    pie_chart_data['npu_run_ops_to_model_run_first']['exec_time'][idx[0]] = pie_chart_data['npu_run_ops_to_model_run_first']['exec_time'][idx[0]] + time_to_microseconds(run_time)
+
+                                pie_chart_data['npu_run_ops_to_model_run_subsequent']['labels'].append(node)
+                                idx = [i for i, key in enumerate(pie_chart_data['npu_run_ops_to_model_run_subsequent']['labels']) if key == node]
+                                for run_time in measurement['Subsequent token times']:
+                                    pie_chart_data['npu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] = pie_chart_data['npu_run_ops_to_model_run_subsequent']['exec_time'][idx[0]] + time_to_microseconds(run_time)
             else: # Measurements for model loading and session initialization 
                 # For the bar chart, the label locations will be the object's keys
                 for key, vals in npu_obj.items():
@@ -397,26 +477,17 @@ def compare_execution_times(cpu_file, npu_file):
             npu_obj = next(npu_parser, None)
 
         generate_bar_chart(bar_chart_data['session_init'], "Session Startup Comparison", 'sess_start_comparison')
-        # TODO: Confirm that below is the correct description of these comparison
+        # # TODO: Confirm that below is the correct description of these comparison
         generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: 1st Prefill+Decoder+Post-Processing Pass", 'model_run_1st_pass') 
         generate_bar_chart(bar_chart_data['model_run_subsequent'], "Model Run: Avg of Subsequent Prefill+Decoder+Post-Processing Pass", 'model_run_subseq_pass') 
         generate_bar_chart(bar_chart_data['mat_mul_op_first'], "Mat Mul: 1st Pass", 'mat_mul_1st_pass') 
         generate_bar_chart(bar_chart_data['mat_mul_op_subsequent'], "Mat Mul: Avg of Subsequent Pass", 'mat_mul_subseq_pass') 
-
-        # TODO: Compare between runs the other operators that aren't offloaded to the NPU
-        # Split dict in half--no need to use this anymore since will just use all items in the same graph. but keeping here in case I need to use the method later
-        # all_ops_first_half = {key:bar_chart_data['each_op_task_10_first'][key][len(measurement)//2:] for key, measurement in bar_chart_data['each_op_task_10_first'].items()}
-        # al_ops_second_half = {key:bar_chart_data['each_op_task_10_first'][key][:len(measurement)//2] for key, measurement in bar_chart_data['each_op_task_10_first'].items()}
-
-        # For the next graph, swap the first two items to make the graph look nicer. The second item has a long name, and doing the swap prevents the staggered
-        # x tick labels from overlapping.
-        # i, j = 0, 1
-        # for key, measurements in bar_chart_data['each_op_task_10_first'].items():
-        #     measurements[i], measurements[j] = measurements[j], measurements[i]
-        #     bar_chart_data['each_op_task_10_first'][key] = measurements
         generate_bar_chart(bar_chart_data['each_op_task_10_first'], title="Task 10 All Ops: 1st Pass", save_name='task_10_all_ops_1st_pass', large_set=True, order_values=True) 
         generate_bar_chart(bar_chart_data['each_op_task_10_subsequent'], title="Task 10 All Ops: Subsequent Pass", save_name='task_10_all_ops_subseq_pass', large_set=True, order_values=True) 
-
+        generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_first'], title="Task 10 First Tokens Distribution: Ops Execution Times Over Model Run with CPU", save_name='rt_distr_over_model_run_cpu_first', order_values=True)
+        generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_first'], title="Task 10 First Tokens Distribution: Ops Execution Times Over Model Run with NPU", save_name='rt_distr_over_model_run_npu_first', order_values=True)
+        generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_subsequent'], title="Task 10 Subsequent Tokens Distribution: Ops Execution Times Over Model Run with CPU", save_name='rt_distr_over_model_run_cpu_subseq', order_values=True)
+        generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_subsequent'], title="Task 10 Subsequent Tokens Distribution: Ops Execution Times Over Model Run with NPU", save_name='rt_distr_over_model_run_npu_subseq', order_values=True)
 
 
 if __name__ == "__main__":
@@ -425,7 +496,7 @@ if __name__ == "__main__":
     output_file_name = 'execution_time_distribution'
 
     # compare_json_incremental(cpu_file, npu_file)
-    # find_execution_distribution(cpu_file, npu_file, output_file_name)
+    find_execution_distribution(cpu_file, npu_file, output_file_name)
 
     cpu_file = f"{output_file_name}_cpu.json"
     npu_file = f"{output_file_name}_npu.json"

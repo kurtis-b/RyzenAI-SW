@@ -47,6 +47,8 @@ def main():
     # Enable ORT profile trace
     if args.ort_trace:
         sess_options.enable_profiling = True
+    if args.profile_file_prefix:
+        sess_options.profile_file_prefix = args.profile_file_prefix
 
     # Register Ryzen-AI Custom OP DLL
     if args.dll:

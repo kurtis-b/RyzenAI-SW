@@ -140,6 +140,14 @@ class ArgumentParser:
             action="store_true",
             help="Enable argument display",
         )
+        # Enable saving report
+        parser.add_argument(
+            "--profile_file_prefix",
+            required=False,
+            type=str,
+            default="",
+            help="Add a prefix to the profile file name",
+        )
         # Save options
         self.parser = parser
 
