@@ -401,8 +401,6 @@ def compare_execution_times(file_prefix, num_runs):
                     for node, measurement in cpu_obj[cpu_runs[0]].items():
                         if node == 'model_run':
                             idx = [i for i, key in enumerate(bar_chart_data['model_run_first']['x_labels']) if key == cpu_runs[0]]
-                            if cpu_runs[0] == 'Task 1' or cpu_runs[0] == 'Task 2':
-                                print(cpu_runs[0], bar_chart_data['model_run_first']['cpu'][idx[0]], time_to_microseconds(measurement['First token time']))
                             bar_chart_data['model_run_first']['cpu'][idx[0]] = bar_chart_data['model_run_first']['cpu'][idx[0]] + time_to_microseconds(measurement['First token time'])
                             idx = [i for i, key in enumerate(bar_chart_data['model_run_subsequent']['x_labels']) if key == cpu_runs[0]]
                             bar_chart_data['model_run_subsequent']['cpu'][idx[0]] = bar_chart_data['model_run_subsequent']['cpu'][idx[0]] + time_to_microseconds(measurement['Subsequent token average'])
@@ -456,8 +454,6 @@ def compare_execution_times(file_prefix, num_runs):
                     for node, measurement in npu_obj[npu_runs[0]].items():
                         if node == 'model_run':
                             idx = [i for i, key in enumerate(bar_chart_data['model_run_first']['x_labels']) if key == npu_runs[0]]
-                            if npu_runs[0] == 'Task 1' or npu_runs[0] == 'Task 2':
-                                print(npu_runs[0], bar_chart_data['model_run_first']['npu'][idx[0]], time_to_microseconds(measurement['First token time']))
                             bar_chart_data['model_run_first']['npu'][idx[0]] = bar_chart_data['model_run_first']['npu'][idx[0]] + time_to_microseconds(measurement['First token time'])
                             idx = [i for i, key in enumerate(bar_chart_data['model_run_subsequent']['x_labels']) if key == npu_runs[0]]
                             bar_chart_data['model_run_subsequent']['npu'][idx[0]] = bar_chart_data['model_run_subsequent']['npu'][idx[0]] + time_to_microseconds(measurement['Subsequent token average'])
@@ -535,10 +531,6 @@ def compare_execution_times(file_prefix, num_runs):
             elif node != 'labels':
                 for i, time in enumerate(times):
                     pie_chart_data[key][node][i] = time // num_runs
-    print('BAR CHART DATA')
-    print(bar_chart_data)
-    print('PIE CHART DATA')
-    print(pie_chart_data)
     # generate_bar_chart(bar_chart_data['session_init'], "Session Startup Comparison", 'sess_start_comparison')
     # TODO: Confirm that below is the correct description of these comparison
     generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: 1st Prefill+Decoder+Post-Processing Pass", os.path.join(NPU_ANALYSIS_DIR, 'model_run_1st_pass')) 
@@ -558,19 +550,22 @@ if __name__ == "__main__":
     npu_file = os.path.join(BENCHMARK_RUNS_DIR, "onnxruntime_profile_npu_run_")  
 
     Path(NPU_ANALYSIS_DIR).mkdir(parents=True, exist_ok=True)
-    # for run in range(1, NUM_BENCHMARK_RUNS + 1):
-    #     file_extension = ".json"
-    #     cpu_file_name = cpu_file + str(run) + file_extension
-    #     npu_file_name = npu_file + str(run) + file_extension
-    #     out_file_name = os.path.join(NPU_ANALYSIS_DIR, "mismatches", "mismatches_" + str(run) + file_extension)
-    #     compare_json_incremental(cpu_file_name, npu_file_name, out_file_name)
+    for run in range(1, NUM_BENCHMARK_RUNS + 1):
+        file_extension = ".json"
+        cpu_file_name = cpu_file + str(run) + file_extension
+        npu_file_name = npu_file + str(run) + file_extension
+        out_file_name = os.path.join(NPU_ANALYSIS_DIR, "mismatches", "mismatches_" + str(run) + file_extension)
+        compare_json_incremental(cpu_file_name, npu_file_name, out_file_name)
+    print("Finished finding mismatches")
 
-    # for run in range(1, NUM_BENCHMARK_RUNS + 1):
-    #     file_extension = ".json"
-    #     cpu_file_name = cpu_file + str(run) + file_extension
-    #     npu_file_name = npu_file + str(run) + file_extension
-    #     out_file_name = os.path.join(NPU_ANALYSIS_DIR, "execution_time_distribution", "run" + str(run))
-    #     find_execution_distribution(cpu_file_name, npu_file_name, out_file_name)
+    for run in range(1, NUM_BENCHMARK_RUNS + 1):
+        file_extension = ".json"
+        cpu_file_name = cpu_file + str(run) + file_extension
+        npu_file_name = npu_file + str(run) + file_extension
+        out_file_name = os.path.join(NPU_ANALYSIS_DIR, "execution_time_distribution", "run" + str(run))
+        find_execution_distribution(cpu_file_name, npu_file_name, out_file_name)
+    print("Finished extracting distributions")
 
     out_file_prefix = os.path.join(NPU_ANALYSIS_DIR, "execution_time_distribution", "run")
     compare_execution_times(out_file_prefix, NUM_BENCHMARK_RUNS)
+    print("Finished comparing distributions")
