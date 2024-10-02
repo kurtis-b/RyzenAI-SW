@@ -1,0 +1,11242 @@
+{
+ "Task 1": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "131072",
+     "output_size": "131072"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "131072",
+     "output_size": "352256"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "352256",
+     "output_size": "131072"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        8,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "131072",
+     "output_size": "1024000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 2": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "262144",
+     "output_size": "262144"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "262144",
+     "output_size": "704512"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "704512",
+     "output_size": "262144"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        16,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "262144",
+     "output_size": "2048000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 3": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "524288",
+     "output_size": "524288"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "524288",
+     "output_size": "1409024"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "1409024",
+     "output_size": "524288"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        32,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "524288",
+     "output_size": "4096000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 4": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "1048576",
+     "output_size": "1048576"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "1048576",
+     "output_size": "2818048"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "2818048",
+     "output_size": "1048576"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        64,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "1048576",
+     "output_size": "8192000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 5": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "2097152",
+     "output_size": "2097152"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "2097152",
+     "output_size": "5636096"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "5636096",
+     "output_size": "2097152"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        128,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "2097152",
+     "output_size": "16384000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 6": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "4194304",
+     "output_size": "4194304"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "4194304",
+     "output_size": "11272192"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "11272192",
+     "output_size": "4194304"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        256,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "4194304",
+     "output_size": "32768000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 7": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "8388608",
+     "output_size": "8388608"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "8388608",
+     "output_size": "22544384"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "22544384",
+     "output_size": "8388608"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        512,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "8388608",
+     "output_size": "65536000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 8": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16777216",
+     "output_size": "16777216"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16777216",
+     "output_size": "45088768"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "45088768",
+     "output_size": "16777216"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1024,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16777216",
+     "output_size": "131072000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 9": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "25165824",
+     "output_size": "25165824"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "25165824",
+     "output_size": "67633152"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "67633152",
+     "output_size": "25165824"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1536,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "25165824",
+     "output_size": "196608000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ },
+ "Task 10": {
+  "Pass 0": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "33554432",
+     "output_size": "33554432"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "33554432",
+     "output_size": "90177536"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "90177536",
+     "output_size": "33554432"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        2048,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "33554432",
+     "output_size": "262144000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 1": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 2": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 3": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 4": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 5": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 6": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 7": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 8": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 9": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ],
+  "Pass 10": [
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "16384"
+    },
+    "count": 128
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "44032"
+    },
+    "count": 64
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        11008
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "activation_size": "44032",
+     "output_size": "16384"
+    },
+    "count": 32
+   },
+   {
+    "characteristics": {
+     "input_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        4096
+       ]
+      }
+     ],
+     "output_type_shape": [
+      {
+       "float": [
+        1,
+        1,
+        32000
+       ]
+      }
+     ],
+     "activation_size": "16384",
+     "output_size": "128000"
+    },
+    "count": 1
+   }
+  ]
+ }
+}

@@ -532,7 +532,7 @@ def compare_execution_times(file_prefix, num_runs):
                 for i, time in enumerate(times):
                     pie_chart_data[key][node][i] = time // num_runs
     # generate_bar_chart(bar_chart_data['session_init'], "Session Startup Comparison", 'sess_start_comparison')
-    # TODO: Confirm that below is the correct description of these comparison
+    # TODO: Confirm that below titles are the correct description of these comparison
     generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: 1st Prefill+Decoder+Post-Processing Pass", os.path.join(NPU_ANALYSIS_DIR, 'model_run_1st_pass')) 
     generate_bar_chart(bar_chart_data['model_run_subsequent'],"Model Run: Avg of Subsequent Prefill+Decoder+Post-Processing Pass", os.path.join(NPU_ANALYSIS_DIR, 'model_run_subseq_pass'))
     generate_bar_chart(bar_chart_data['mat_mul_op_first'], "Mat Mul: 1st Pass", os.path.join(NPU_ANALYSIS_DIR, 'mat_mul_1st_pass'))
@@ -544,6 +544,46 @@ def compare_execution_times(file_prefix, num_runs):
     generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Subsequent Pass CPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_cpu_subseq'), order_values=True)
     generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Subsequent Pass NPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_npu_subseq'), order_values=True)
 
+def generate_mmul_chars(in_file_name, node_name, out_file_name):
+    # Initialize a dictionary to store the characteristics and their counts
+    characteristics_count = {f"Task {run+1}": {f"Pass {fwd_pass}": [] for fwd_pass in range(NUM_FORWARD_PASSES)} for run in range(NUM_BENCHMARK_RUNS)}
+    
+    with open(in_file_name, 'r') as f:
+        parser = ijson.items(f, 'item')
+        node = next(parser, None)
+
+        counter = 0
+        run = 1
+        run_key = f"Task {run}"
+        fwd_pass_key = f"Pass {counter}"
+        while node is not None:
+            name_value = node['name']
+            if name_value == "model_run":
+                counter = (counter + 1) % NUM_FORWARD_PASSES
+                fwd_pass_key = f"Pass {counter}"
+                if counter == 0:
+                    run = run + 1
+                    run_key = f"Task {run}"
+            if node_name in node['name'] and "before" not in name_value and "after" not in name_value:
+                node_characteristics = {
+                    "input_type_shape": node['args'].get("input_type_shape"),
+                    "output_type_shape": node['args'].get("output_type_shape"),
+                    "activation_size": node['args'].get("activation_size"),
+                    "output_size": node['args'].get("output_size")
+                }
+                characteristic_found = False
+                for characteristic in characteristics_count[run_key][fwd_pass_key]:
+                    if node_characteristics == characteristic["characteristics"]:
+                        characteristic["count"] += 1
+                        characteristic_found = True
+                        break
+                if not characteristic_found:
+                    characteristics_count[run_key][fwd_pass_key].append({"characteristics": node_characteristics, "count": 1})
+            node = next(parser, None)
+
+    # Save the characteristics and their counts to the output file
+    with open(out_file_name, 'w') as out_file:
+        json.dump(characteristics_count, out_file, indent=1)
 
 if __name__ == "__main__":
     cpu_file = os.path.join(BENCHMARK_RUNS_DIR, "onnxruntime_profile_cpu_run_")
@@ -569,3 +609,15 @@ if __name__ == "__main__":
     out_file_prefix = os.path.join(NPU_ANALYSIS_DIR, "execution_time_distribution", "run")
     compare_execution_times(out_file_prefix, NUM_BENCHMARK_RUNS)
     print("Finished comparing distributions")
+
+    # Generate characteristics for MatMulNBits operations. Each forward pass will execute MatMulNBits 225 times.
+    # Therefore, for each pass in each task in each JSON file, the count should add up to 225.
+    out_file_prefix = os.path.join(NPU_ANALYSIS_DIR, "matmul_characteristics")
+    for run in range(1, NUM_BENCHMARK_RUNS + 1):
+        file_extension = ".json"
+        cpu_file_name = cpu_file + str(run) + file_extension
+        generate_mmul_chars(cpu_file_name, "MatMul_Q4_kernel_time", os.path.join(out_file_prefix, 'cpu_run_' + str(run) + '.json'))
+        npu_file_name = npu_file + str(run) + file_extension
+        generate_mmul_chars(npu_file_name, "VitisAIExecutionProvider", os.path.join(out_file_prefix, 'npu_run_' + str(run) + '.json'))
+        print("Finished characterizing MatMulNBits operations from run ", run)
+    
