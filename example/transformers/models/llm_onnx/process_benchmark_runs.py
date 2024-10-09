@@ -532,17 +532,16 @@ def compare_execution_times(file_prefix, num_runs):
                 for i, time in enumerate(times):
                     pie_chart_data[key][node][i] = time // num_runs
     # generate_bar_chart(bar_chart_data['session_init'], "Session Startup Comparison", 'sess_start_comparison')
-    # TODO: Confirm that below titles are the correct description of these comparison
-    generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: 1st Prefill+Decoder+Post-Processing Pass", os.path.join(NPU_ANALYSIS_DIR, 'model_run_1st_pass')) 
-    generate_bar_chart(bar_chart_data['model_run_subsequent'],"Model Run: Avg of Subsequent Prefill+Decoder+Post-Processing Pass", os.path.join(NPU_ANALYSIS_DIR, 'model_run_subseq_pass'))
-    generate_bar_chart(bar_chart_data['mat_mul_op_first'], "Mat Mul: 1st Pass", os.path.join(NPU_ANALYSIS_DIR, 'mat_mul_1st_pass'))
-    generate_bar_chart(bar_chart_data['mat_mul_op_subsequent'],"Mat Mul: Avg of Subsequent Pass", os.path.join(NPU_ANALYSIS_DIR, 'mat_mul_subseq_pass'))
-    generate_bar_chart(bar_chart_data['each_op_task_10_first'], title="Promp Length=2048, All Ops: 1st Pass", save_name=os.path.join(NPU_ANALYSIS_DIR, 'task_10_all_ops_1st_pass'), large_set=True, order_values=True) 
-    generate_bar_chart(bar_chart_data['each_op_task_10_subsequent'], title="Promp Length=2048, All Ops: Subsequent Pass", save_name=os.path.join(NPU_ANALYSIS_DIR, 'task_10_all_ops_subseq_pass'), large_set=True, order_values=True) 
-    generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_first'], title="Promp Length=2048, 1st Pass CPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_cpu_first'), order_values=True)
-    generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_first'], title="Promp Length=2048, 1st Pass NPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_npu_first'), order_values=True)
-    generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Subsequent Pass CPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_cpu_subseq'), order_values=True)
-    generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Subsequent Pass NPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_npu_subseq'), order_values=True)
+    generate_bar_chart(bar_chart_data['model_run_first'], "Model Run: Avg of Prefill Phase", os.path.join(NPU_ANALYSIS_DIR, 'model_run_1st_pass')) 
+    generate_bar_chart(bar_chart_data['model_run_subsequent'],"Model Run: Avg of Decode Phase", os.path.join(NPU_ANALYSIS_DIR, 'model_run_subseq_pass'))
+    generate_bar_chart(bar_chart_data['mat_mul_op_first'], "Mat Mul: Prefill Phase", os.path.join(NPU_ANALYSIS_DIR, 'mat_mul_1st_pass'))
+    generate_bar_chart(bar_chart_data['mat_mul_op_subsequent'],"Mat Mul: Avg of Decode Phase", os.path.join(NPU_ANALYSIS_DIR, 'mat_mul_subseq_pass'))
+    generate_bar_chart(bar_chart_data['each_op_task_10_first'], title="Promp Length=2048, All Ops: Prefill Phase", save_name=os.path.join(NPU_ANALYSIS_DIR, 'task_10_all_ops_1st_pass'), large_set=True, order_values=True) 
+    generate_bar_chart(bar_chart_data['each_op_task_10_subsequent'], title="Promp Length=2048, All Ops: Decode Phase", save_name=os.path.join(NPU_ANALYSIS_DIR, 'task_10_all_ops_subseq_pass'), large_set=True, order_values=True) 
+    generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_first'], title="Promp Length=2048, Prefill Phase CPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_cpu_first'), order_values=True)
+    generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_first'], title="Promp Length=2048, Prefill Phase NPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_npu_first'), order_values=True)
+    generate_pie_chart(pie_chart_data['cpu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Decode Phase CPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_cpu_subseq'), order_values=True)
+    generate_pie_chart(pie_chart_data['npu_run_ops_to_model_run_subsequent'], title="Promp Length=2048, Decode Phase NPU: Op Distribution Over Model Run", save_name=os.path.join(NPU_ANALYSIS_DIR, 'rt_distr_over_model_run_npu_subseq'), order_values=True)
 
 def generate_mmul_chars(in_file_name, node_name, out_file_name):
     # Initialize a dictionary to store the characteristics and their counts
@@ -564,12 +563,13 @@ def generate_mmul_chars(in_file_name, node_name, out_file_name):
                 if counter == 0:
                     run = run + 1
                     run_key = f"Task {run}"
+            
             if node_name in node['name'] and "before" not in name_value and "after" not in name_value:
                 node_characteristics = {
                     "input_type_shape": node['args'].get("input_type_shape"),
                     "output_type_shape": node['args'].get("output_type_shape"),
                     "activation_size": node['args'].get("activation_size"),
-                    "output_size": node['args'].get("output_size")
+                    "output_size": node['args'].get("output_size"),
                 }
                 characteristic_found = False
                 for characteristic in characteristics_count[run_key][fwd_pass_key]:
